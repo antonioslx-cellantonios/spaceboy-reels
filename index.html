@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spaceboy Reels</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand" id="brand">
+    <span class="brand-name" id="brand-name">Spaceboy Reels</span>
+  </div>
+  <p class="event-name" id="event-name"></p>
+</header>
+
+<main>
+  <section id="grid" class="reel-grid" aria-label="Videos"></section>
+</main>
+
+<footer class="site-footer" id="site-footer"></footer>
+
+<div class="player-overlay" id="player-overlay" hidden>
+  <div class="player-box">
+    <button class="close-btn" id="close-btn" aria-label="Cerrar">&times;</button>
+    <div class="player-frame" id="player-frame"></div>
+    <div class="player-caption">
+      <h2 id="player-title"></h2>
+      <p id="player-description"></p>
+    </div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
