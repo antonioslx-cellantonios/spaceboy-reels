@@ -81,12 +81,14 @@ window.SITE_CONFIG = {
   // --- Presentaciones (PDFs) ---
   // file: ruta al PDF dentro de assets/pdfs/ (ver README para subirlos)
   presentations: [
-    // Ejemplo — bórralo o edítalo:
-    // {
-    //   title: { es: "Presentación institucional", en: "Company overview" },
-    //   file: "assets/pdfs/institucional.pdf"
-    // }
-  ],
+  {
+    title: { es: "Spaceboy Films", en: "Spaceboy Films" },
+    file: {
+      es: "assets/pdfs/SPACEBOY%20ESP%20FILMS.pdf",
+      en: "assets/pdfs/SPACEBOY%20ENG%20FILMS.pdf"
+    }
+  }
+],
 
   // --- Contactos (QRs) ---
   // qr: ruta a la imagen del QR dentro de assets/img/qrs/ (ver README para subirlas)
