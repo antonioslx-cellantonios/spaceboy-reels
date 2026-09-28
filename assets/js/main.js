@@ -170,7 +170,7 @@
       card.type = 'button';
       card.innerHTML = `<h3>${t(pres.title)}</h3>`;
       card.addEventListener('click', () => {
-        pdfFrame.src = pres.file;
+        pdfFrame.src = t(pres.file);
         pdfTitle.textContent = t(pres.title);
         lastPresView = 'presentations';
         showView('pdf');
