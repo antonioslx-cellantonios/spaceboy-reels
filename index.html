@@ -12,22 +12,64 @@
 </head>
 <body>
 
+<!-- Logo pequeño fijo, visible siempre -->
+<div class="corner-logo" id="corner-logo" hidden></div>
+
 <header class="site-header">
-  <div class="brand" id="brand">
-    <span class="brand-name" id="brand-name">Spaceboy Reels</span>
+  <div class="header-top">
+    <div class="brand" id="brand">
+      <span class="brand-name" id="brand-name">Spaceboy Reels</span>
+    </div>
+    <div class="header-controls">
+      <button id="lang-toggle" class="lang-btn" type="button">EN</button>
+      <button id="menu-toggle" class="menu-btn" type="button" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
   <p class="event-name" id="event-name"></p>
+  <p class="studio-description" id="studio-description"></p>
 </header>
 
+<div class="menu-overlay" id="menu-overlay" hidden></div>
+<nav class="side-menu" id="side-menu" hidden>
+  <button id="menu-close" class="close-btn" type="button" aria-label="Cerrar menú">&times;</button>
+  <ul>
+    <li><button class="nav-link" data-view="home" id="nav-home"></button></li>
+    <li><button class="nav-link" data-view="presentations" id="nav-presentations"></button></li>
+    <li><button class="nav-link" data-view="contacts" id="nav-contacts"></button></li>
+  </ul>
+</nav>
+
 <main>
-  <section id="grid" class="reel-grid" aria-label="Videos"></section>
+  <section id="view-home" class="view">
+    <div id="grid" class="reel-grid" aria-label="Videos"></div>
+  </section>
+
+  <section id="view-presentations" class="view" hidden>
+    <h2 class="view-title" id="presentations-title"></h2>
+    <div id="presentations-list" class="pres-list"></div>
+    <p id="presentations-empty" class="empty-msg" hidden></p>
+  </section>
+
+  <section id="view-pdf" class="view" hidden>
+    <button id="pdf-back" class="back-btn" type="button"></button>
+    <h2 id="pdf-title" class="view-title"></h2>
+    <iframe id="pdf-frame" class="pdf-frame" title="Presentación"></iframe>
+  </section>
+
+  <section id="view-contacts" class="view" hidden>
+    <h2 class="view-title" id="contacts-title"></h2>
+    <div id="contacts-grid" class="contacts-grid"></div>
+    <p id="contacts-empty" class="empty-msg" hidden></p>
+  </section>
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>
 
 <div class="player-overlay" id="player-overlay" hidden>
   <div class="player-box">
-    <button class="close-btn" id="close-btn" aria-label="Cerrar">&times;</button>
+    <button class="close-btn" id="close-btn" type="button" aria-label="Cerrar">&times;</button>
     <div class="player-frame" id="player-frame"></div>
     <div class="player-caption">
       <h2 id="player-title"></h2>

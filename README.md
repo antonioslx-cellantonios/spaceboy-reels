@@ -1,55 +1,74 @@
 # Spaceboy Reels
 
-Sitio estático simple para mostrar reels de video, con branding editable (logo, colores, nombre de evento).
+Sitio estático con reels, español/inglés, sección de presentaciones (PDF) y sección de contacto (QRs).
 
 ## Estructura
 
 ```
-index.html          → estructura de la página (normalmente no la tocas)
-config.js            → AQUÍ editas todo: colores, logo, nombre de evento y lista de videos
-assets/css/style.css → estilos (usa las variables de color que defines en config.js)
-assets/js/main.js    → arma la página a partir de config.js (no necesitas tocarlo)
-assets/img/          → coloca aquí tu logo si usas uno local
+index.html                → estructura de la página (no la tocas)
+config.js                 → AQUÍ editas todo: logo, textos, videos, presentaciones, contactos
+assets/css/style.css      → estilos (no lo tocas)
+assets/js/main.js         → arma la página e idiomas a partir de config.js (no lo tocas)
+assets/img/               → coloca aquí tu logo
+assets/img/qrs/           → coloca aquí las imágenes de los QRs de contacto
+assets/pdfs/              → coloca aquí los PDFs de presentaciones
 ```
 
-## Cómo agregar o cambiar videos
+## Logo
 
-Edita el arreglo `videos` en `config.js`. Cada video necesita:
+Sube tu archivo (ej. `logo.png`, fondo transparente recomendado) a `assets/img/`, y en `config.js` pon:
 
-- `title` / `description`
-- `type`: `"youtube"`, `"vimeo"` o `"mp4"`
-- `src`:
-  - YouTube → solo el ID del video (lo que va después de `v=` en la URL). Puedes subir el video como **"No listado"** para que no aparezca en búsquedas pero sí se pueda reproducir aquí.
-  - Vimeo → el ID numérico del video.
-  - `mp4` → la URL completa de un archivo de video alojado en otro lado (ver siguiente sección).
-- `thumbnail` (opcional): si lo dejas vacío, para YouTube se genera automáticamente.
+```js
+logo: "assets/img/logo.png",
+```
 
-## Cómo rebrandear para un evento
+Se usa en dos lugares automáticamente: grande arriba del sitio, y chico fijo en la esquina inferior izquierda mientras se navega.
 
-Todo se hace en `config.js`, sin tocar código:
+## Idioma (ES/EN)
 
-- `siteTitle`, `eventName`, `footerText` → textos
-- `logo` → ruta a una imagen (ej. `"assets/img/logo.png"`, colócala en esa carpeta); si lo dejas vacío se usa el texto de `siteTitle`
-- `colors` → cambia los valores hex para el fondo, tarjetas, texto y color de acento
+El botón de arriba a la derecha cambia todo el sitio entre español e inglés. Todo texto en `config.js` que se vea en el sitio (título del video, descripción, nombre del estudio, etc.) va en este formato:
 
-Puedes tener una copia de `config.js` por evento (ej. `config-evento-x.js`) y renombrarla a `config.js` cuando publiques esa versión, si quieres mantener varias marcas listas.
+```js
+{ es: "Texto en español", en: "Text in English" }
+```
+
+Si algún día agregas un video nuevo, copia ese mismo patrón para su título y descripción.
+
+## Presentaciones (PDF)
+
+1. Sube el archivo PDF a `assets/pdfs/`.
+2. Agrega un bloque en `presentations` dentro de `config.js`:
+
+```js
+{
+  title: { es: "Nombre de la presentación", en: "Presentation name" },
+  file: "assets/pdfs/nombre-del-archivo.pdf"
+}
+```
+
+Al hacer clic, se abre el PDF dentro del sitio con un botón "Volver" para regresar a la lista.
+
+## Contacto (QRs)
+
+1. Sube cada imagen de QR a `assets/img/qrs/`.
+2. Agrega un bloque en `contacts` dentro de `config.js` con los datos de esa persona:
+
+```js
+{
+  name: "Nombre Apellido",
+  role: "Puesto",              // opcional
+  phone: "+52 55 0000 0000",   // opcional
+  email: "nombre@spaceboy.mx", // opcional
+  qr: "assets/img/qrs/nombre.png"
+}
+```
+
+Los campos de teléfono y correo se muestran como links (clic para llamar o escribir).
 
 ## Sobre alojar los videos
 
-GitHub (y GitHub Pages, que es gratis) **no es buen lugar para subir los archivos de video pesados**: hay límites de tamaño por archivo y de ancho de banda, y el repositorio se vuelve lento de clonar/actualizar.
+No subas los videos pesados al repo de GitHub (límites de tamaño/ancho de banda). Súbelos a YouTube (puede ser "No listado") o Vimeo, y solo pon el ID en `config.js`. Los PDFs y las imágenes de QR sí puedes subirlos directo al repo — son archivos ligeros.
 
-Recomendación:
-- Sube los videos a **YouTube** (como "No listado", no aparecen en búsquedas ni en tu canal público, pero el link/embed funciona) o a **Vimeo**. Es gratis y es lo más simple de mantener.
-- Si de verdad necesitas `mp4` autohospedado, usa un servicio de almacenamiento/CDN aparte (ej. Cloudflare R2, Bunny.net, Backblaze B2) y pon esa URL en `src`. El sitio en GitHub Pages solo sirve el HTML/CSS/JS, no los videos.
+## Publicar / actualizar en GitHub Pages
 
-## Cómo publicarlo gratis con GitHub Pages
-
-1. Crea un repositorio nuevo en GitHub (puede ser público o privado si tienes cuenta paga; Pages gratis requiere que sea público en cuentas gratuitas).
-2. Sube estos archivos a la raíz del repositorio (puedes arrastrarlos desde la interfaz web de GitHub, sin usar la terminal).
-3. Ve a **Settings → Pages**.
-4. En "Source" elige la rama `main` y la carpeta `/ (root)`. Guarda.
-5. GitHub te da una URL tipo `https://tu-usuario.github.io/tu-repo/` — tarda uno o dos minutos en activarse la primera vez.
-
-## Cómo actualizarlo después
-
-Para agregar un video nuevo o cambiar colores/logo: edita `config.js` directamente en GitHub (botón de lápiz ✏️ sobre el archivo, en la web de GitHub, sin necesitar nada instalado) y confirma el cambio ("Commit changes"). El sitio se actualiza solo en un par de minutos.
+Mismo proceso que ya usaste: sube los archivos al repositorio (arrastrando o editando directo en github.com) y confirma con "Commit changes". El sitio se actualiza solo en un par de minutos. Si es la primera vez, activa Settings → Pages → rama `main`, carpeta `/ (root)`.
