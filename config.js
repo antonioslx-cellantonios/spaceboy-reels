@@ -100,9 +100,9 @@ window.SITE_CONFIG = {
   presentations: [
     {
       title: { es: "Spaceboy Films", en: "Spaceboy Films" },
-      file: {
-        es: "assets/pdfs/SPACEBOY ESP FILMS.pdf",
-        en: "assets/pdfs/SPACEBOY ENG FILMS.pdf"
+    file: {
+      es: "assets/pdfs/SPACEBOY ESP  FILMS.pdf",
+      en: "assets/pdfs/SPACEBOY ENG  FILMS.pdf"
       }
     }
   ]
