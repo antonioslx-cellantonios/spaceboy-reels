@@ -82,15 +82,14 @@ window.SITE_CONFIG = {
   // phone: con código de país, ej. "+52 55 1234 5678" — se usa tanto para el link
   //        de llamada/guardar contacto como para abrir WhatsApp al hacer clic en el QR.
   contacts: [
-    // Ejemplo — bórralo o edítalo:
-    // {
-    //   name: "Nombre Apellido",
-    //   photo: "assets/img/contacts/nombre.jpg",
-    //   phone: "+52 55 0000 0000",
-    //   email: "nombre@spaceboy.mx",
-    //   qr: "assets/img/qrs/nombre-whatsapp.png"
-    // }
-  ],
+  {
+    name: "Nombre Apellido",
+    photo: "assets/img/contacts/dani.jpeg",
+    phone: "+52 55 1234 5678",
+    email: "correo@spaceboy.mx",
+    qr: "assets/img/qrs/qrShu.jpeg"
+  }
+],
 
   // --- Presentaciones (sección "Presentaciones") ---
   // file puede ser una ruta simple ("assets/pdfs/x.pdf") o, como aquí,
@@ -101,8 +100,8 @@ window.SITE_CONFIG = {
     {
       title: { es: "Spaceboy Films", en: "Spaceboy Films" },
       file: {
-        es: "assets/pdfs/SPACEBOY ESP FILMS.pdf",
-        en: "assets/pdfs/SPACEBOY ENG FILMS.pdf"
+        es: "assets/pdfs/SPACEBOY ESP  FILMS.pdf",
+        en: "assets/pdfs/SPACEBOY ENG  FILMS.pdf"
       }
     }
   ]
