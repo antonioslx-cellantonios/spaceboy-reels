@@ -83,10 +83,11 @@ window.SITE_CONFIG = {
   //        de llamada/guardar contacto como para abrir WhatsApp al hacer clic en el QR.
   contacts: [
   {
-    name: "Nombre Apellido",
+    name: "Daniela Gumi",
+    role: "Área Comercial",
     photo: "assets/img/contacts/dani.jpeg",
-    phone: "+52 55 1234 5678",
-    email: "correo@spaceboy.mx",
+    phone: "+52 1 55 3516 9774",
+    email: "daniela@spaceboy.mx",
     qr: "assets/img/qrs/qrShu.jpeg"
   }
 ],
