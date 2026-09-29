@@ -84,7 +84,7 @@ window.SITE_CONFIG = {
   contacts: [
   {
     name: "Daniela Gumi",
-    role: "Área Comercial",
+    role: { es: "Área Comercial", en: "Commercial Teamt" },
     photo: "assets/img/contacts/dani.jpeg",
     phone: "+52 1 55 3516 9774",
     email: "daniela@spaceboy.mx",
