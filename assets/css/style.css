@@ -61,7 +61,7 @@ html, body {
 }
 
 .brand-name {
-  font-family: 'TextoFont', sans-serif;
+  font-family: 'TituloFont', sans-serif;
   font-weight: 700;
   font-size: clamp(calc(24px * var(--title-scale)), calc(4vw * var(--title-scale)), calc(36px * var(--title-scale)));
   letter-spacing: -0.01em;
