@@ -332,6 +332,13 @@ main { padding: 32px; }
   font-weight: 500;
 }
 
+.pres-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .contacts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
