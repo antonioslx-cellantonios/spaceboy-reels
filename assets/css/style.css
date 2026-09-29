@@ -53,7 +53,7 @@ html, body {
 }
 
 .brand img {
-  max-height: 96px;
+  max-height: 300px;
   display: block;
   margin: 0 auto;
 }
