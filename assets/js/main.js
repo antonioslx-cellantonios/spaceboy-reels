@@ -52,6 +52,7 @@
     brandName.textContent = cfg.siteTitle || 'Reels';
   }
   document.getElementById('site-footer').textContent = t(cfg.footerText);
+  document.getElementById('site-footer-secondary').textContent = t(cfg.footerSubtext);
 
   // --- Menú lateral (navega por scroll dentro de la misma página) ---
   const menuToggle = document.getElementById('menu-toggle');
