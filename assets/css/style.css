@@ -334,7 +334,7 @@ main { padding: 32px; }
 
 .contacts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
   gap: 20px;
 }
 
@@ -342,16 +342,16 @@ main { padding: 32px; }
   background: var(--surface);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 0px;
-  padding: 20px;
+  padding: 28px 20px;
   text-align: center;
 }
 
 .contact-photo {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
-  margin: 0 auto 14px;
+  margin: 0 auto 18px;
   display: block;
   background: #333;
 }
