@@ -202,6 +202,7 @@
       card.innerHTML = `
         ${c.photo ? `<img class="contact-photo" src="${c.photo}" alt="${c.name || ''}">` : ''}
         <h3>${c.name || ''}</h3>
+        ${c.role ? `<p class="role">${c.role}</p>` : ''}
         ${c.phone ? `<p><a href="tel:${c.phone.replace(/\s+/g, '')}">${c.phone}</a></p>` : ''}
         ${c.email ? `<p><a href="mailto:${c.email}">${c.email}</a></p>` : ''}
         ${c.qr ? `
