@@ -89,7 +89,7 @@ window.SITE_CONFIG = {
     photo: "assets/img/contacts/dani2.png",
     phone: "+52 1 55 3516 9774",
     email: "daniela@spaceboy.mx",
-    qr: "assets/img/qrs/qrDani.jpeg"
+    qr: "assets/img/qrs/qrDani.png"
   },
     {
     name: "Manuel Bustos",
@@ -97,7 +97,7 @@ window.SITE_CONFIG = {
     photo: "assets/img/contacts/manu.png",
     phone: "+52 1 55 3224 3930",
     email: "manuel@spaceboy.mx",
-    qr: "assets/img/qrs/qrManu.jpeg"
+    qr: "assets/img/qrs/qrManu.png"
   }
 ],
 
