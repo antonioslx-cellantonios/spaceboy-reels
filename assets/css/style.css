@@ -34,6 +34,8 @@ html, body {
 .site-header {
   padding: 32px 32px 20px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  text-align: center;
 }
 
 .header-top {
@@ -60,6 +62,9 @@ html, body {
   align-items: center;
   gap: 12px;
   flex-shrink: 0;
+  position: absolute;
+  top: 32px;
+  right: 32px;
 }
 
 .lang-btn {
@@ -105,7 +110,7 @@ html, body {
 }
 
 .studio-description {
-  margin: 10px 0 0;
+  margin: 10px auto 0;
   color: var(--text);
   font-size: 15px;
   line-height: 1.6;
