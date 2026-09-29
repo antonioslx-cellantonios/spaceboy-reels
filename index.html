@@ -33,48 +33,55 @@
 
 <div class="menu-overlay" id="menu-overlay" hidden></div>
 <nav class="side-menu" id="side-menu" hidden>
-  <button id="menu-close" class="close-btn" type="button" aria-label="Cerrar menú">&times;</button>
+  <button id="menu-close" class="close-btn menu-close-btn" type="button" aria-label="Cerrar menú">&times;</button>
   <ul>
-    <li><button class="nav-link" data-view="home" id="nav-home"></button></li>
-    <li><button class="nav-link" data-view="presentations" id="nav-presentations"></button></li>
-    <li><button class="nav-link" data-view="contacts" id="nav-contacts"></button></li>
+    <li><button class="nav-link" data-target="section-reels" id="nav-home"></button></li>
+    <li><button class="nav-link" data-target="section-contacto" id="nav-contacts"></button></li>
+    <li><button class="nav-link" data-target="section-presentaciones" id="nav-presentations"></button></li>
   </ul>
 </nav>
 
 <main>
-  <section id="view-home" class="view">
+  <section id="section-reels" class="page-section">
+    <h2 class="section-title" id="reels-title"></h2>
     <div id="grid" class="reel-grid" aria-label="Videos"></div>
   </section>
 
-  <section id="view-presentations" class="view" hidden>
-    <h2 class="view-title" id="presentations-title"></h2>
-    <div id="presentations-list" class="pres-list"></div>
-    <p id="presentations-empty" class="empty-msg" hidden></p>
-  </section>
-
-  <section id="view-pdf" class="view" hidden>
-    <button id="pdf-back" class="back-btn" type="button"></button>
-    <h2 id="pdf-title" class="view-title"></h2>
-    <iframe id="pdf-frame" class="pdf-frame" title="Presentación"></iframe>
-  </section>
-
-  <section id="view-contacts" class="view" hidden>
-    <h2 class="view-title" id="contacts-title"></h2>
+  <section id="section-contacto" class="page-section">
+    <h2 class="section-title" id="contacts-title"></h2>
     <div id="contacts-grid" class="contacts-grid"></div>
     <p id="contacts-empty" class="empty-msg" hidden></p>
+  </section>
+
+  <section id="section-presentaciones" class="page-section">
+    <h2 class="section-title" id="presentations-title"></h2>
+    <div id="presentations-list" class="pres-list"></div>
+    <p id="presentations-empty" class="empty-msg" hidden></p>
   </section>
 </main>
 
 <footer class="site-footer" id="site-footer"></footer>
 
-<div class="player-overlay" id="player-overlay" hidden>
-  <div class="player-box">
+<!-- Reproductor de video -->
+<div class="overlay" id="player-overlay" hidden>
+  <div class="overlay-box">
     <button class="close-btn" id="close-btn" type="button" aria-label="Cerrar">&times;</button>
     <div class="player-frame" id="player-frame"></div>
-    <div class="player-caption">
+    <div class="overlay-caption">
       <h2 id="player-title"></h2>
       <p id="player-description"></p>
     </div>
+  </div>
+</div>
+
+<!-- Visor de PDF -->
+<div class="overlay" id="pdf-overlay" hidden>
+  <div class="overlay-box pdf-overlay-box">
+    <button class="close-btn" id="pdf-close-btn" type="button" aria-label="Cerrar">&times;</button>
+    <div class="overlay-caption">
+      <h2 id="pdf-title"></h2>
+    </div>
+    <iframe id="pdf-frame" class="pdf-frame" title="Presentación"></iframe>
   </div>
 </div>
 

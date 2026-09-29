@@ -6,25 +6,22 @@
     es: {
       langButton: "EN",
       navHome: "Reels",
-      navPresentations: "Presentaciones",
       navContacts: "Contacto",
-      back: "← Volver",
+      navPresentations: "Presentaciones",
       presentationsEmpty: "Aún no hay presentaciones cargadas.",
       contactsEmpty: "Aún no hay contactos cargados."
     },
     en: {
       langButton: "ES",
       navHome: "Reels",
-      navPresentations: "Presentations",
       navContacts: "Contact",
-      back: "← Back",
+      navPresentations: "Presentations",
       presentationsEmpty: "No presentations added yet.",
       contactsEmpty: "No contacts added yet."
     }
   };
 
   let lang = localStorage.getItem('siteLang') || 'es';
-  let lastPresView = 'presentations'; // a dónde regresa el botón "volver" del PDF
 
   function t(field) {
     // field puede ser string plano o {es, en}
@@ -52,20 +49,7 @@
   }
   document.getElementById('site-footer').textContent = t(cfg.footerText);
 
-  // --- Vistas ---
-  const views = {
-    home: document.getElementById('view-home'),
-    presentations: document.getElementById('view-presentations'),
-    pdf: document.getElementById('view-pdf'),
-    contacts: document.getElementById('view-contacts')
-  };
-
-  function showView(name) {
-    Object.entries(views).forEach(([key, el]) => { el.hidden = key !== name; });
-    closeMenu();
-  }
-
-  // --- Menú lateral ---
+  // --- Menú lateral (navega por scroll dentro de la misma página) ---
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose = document.getElementById('menu-close');
   const sideMenu = document.getElementById('side-menu');
@@ -78,9 +62,13 @@
   menuClose.addEventListener('click', closeMenu);
   menuOverlay.addEventListener('click', closeMenu);
 
-  document.getElementById('nav-home').addEventListener('click', () => showView('home'));
-  document.getElementById('nav-presentations').addEventListener('click', () => showView('presentations'));
-  document.getElementById('nav-contacts').addEventListener('click', () => showView('contacts'));
+  document.querySelectorAll('.nav-link').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.dataset.target);
+      closeMenu();
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
 
   // --- Idioma ---
   const langBtn = document.getElementById('lang-toggle');
@@ -122,10 +110,10 @@
   }
 
   // --- Reproductor de video ---
-  const overlay = document.getElementById('player-overlay');
-  const frame = document.getElementById('player-frame');
-  const titleEl = document.getElementById('player-title');
-  const descEl = document.getElementById('player-description');
+  const playerOverlay = document.getElementById('player-overlay');
+  const playerFrame = document.getElementById('player-frame');
+  const playerTitleEl = document.getElementById('player-title');
+  const playerDescEl = document.getElementById('player-description');
   const closeBtn = document.getElementById('close-btn');
 
   function embedFor(video) {
@@ -142,21 +130,22 @@
   }
 
   function openPlayer(video) {
-    frame.innerHTML = embedFor(video);
-    titleEl.textContent = t(video.title);
-    descEl.textContent = t(video.description);
-    overlay.hidden = false;
+    playerFrame.innerHTML = embedFor(video);
+    playerTitleEl.textContent = t(video.title);
+    playerDescEl.textContent = t(video.description);
+    playerOverlay.hidden = false;
   }
 
-  function closePlayer() { overlay.hidden = true; frame.innerHTML = ''; }
+  function closePlayer() { playerOverlay.hidden = true; playerFrame.innerHTML = ''; }
 
   closeBtn.addEventListener('click', closePlayer);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closePlayer(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) closePlayer(); });
+  playerOverlay.addEventListener('click', (e) => { if (e.target === playerOverlay) closePlayer(); });
 
   // --- Presentaciones ---
+  const pdfOverlay = document.getElementById('pdf-overlay');
   const pdfFrame = document.getElementById('pdf-frame');
-  const pdfTitle = document.getElementById('pdf-title');
+  const pdfTitleEl = document.getElementById('pdf-title');
+  const pdfCloseBtn = document.getElementById('pdf-close-btn');
 
   function renderPresentations() {
     const list = document.getElementById('presentations-list');
@@ -169,19 +158,28 @@
       card.className = 'pres-card';
       card.type = 'button';
       card.innerHTML = `<h3>${t(pres.title)}</h3>`;
-      card.addEventListener('click', () => {
-        pdfFrame.src = t(pres.file);
-        pdfTitle.textContent = t(pres.title);
-        lastPresView = 'presentations';
-        showView('pdf');
-      });
+      card.addEventListener('click', () => openPdf(pres));
       list.appendChild(card);
     });
   }
 
-  document.getElementById('pdf-back').addEventListener('click', () => {
-    pdfFrame.src = '';
-    showView(lastPresView);
+  function openPdf(pres) {
+    // encodeURI convierte espacios y otros caracteres del nombre de archivo
+    // a una URL válida automáticamente (no hace falta escribir %20 a mano en config.js)
+    pdfFrame.src = encodeURI(t(pres.file));
+    pdfTitleEl.textContent = t(pres.title);
+    pdfOverlay.hidden = false;
+  }
+
+  function closePdf() { pdfOverlay.hidden = true; pdfFrame.src = ''; }
+
+  pdfCloseBtn.addEventListener('click', closePdf);
+  pdfOverlay.addEventListener('click', (e) => { if (e.target === pdfOverlay) closePdf(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!playerOverlay.hidden) closePlayer();
+    if (!pdfOverlay.hidden) closePdf();
   });
 
   // --- Contactos ---
@@ -213,11 +211,11 @@
     document.getElementById('event-name').textContent = t(cfg.eventName);
     document.getElementById('studio-description').textContent = t(cfg.studioDescription);
     document.getElementById('nav-home').textContent = UI[lang].navHome;
-    document.getElementById('nav-presentations').textContent = UI[lang].navPresentations;
     document.getElementById('nav-contacts').textContent = UI[lang].navContacts;
-    document.getElementById('presentations-title').textContent = UI[lang].navPresentations;
+    document.getElementById('nav-presentations').textContent = UI[lang].navPresentations;
+    document.getElementById('reels-title').textContent = UI[lang].navHome;
     document.getElementById('contacts-title').textContent = UI[lang].navContacts;
-    document.getElementById('pdf-back').textContent = UI[lang].back;
+    document.getElementById('presentations-title').textContent = UI[lang].navPresentations;
     document.getElementById('presentations-empty').textContent = UI[lang].presentationsEmpty;
     document.getElementById('contacts-empty').textContent = UI[lang].contactsEmpty;
     renderGrid();

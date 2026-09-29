@@ -8,6 +8,8 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
+
 html, body {
   margin: 0;
   padding: 0;
@@ -106,7 +108,7 @@ html, body {
   margin: 10px 0 0;
   color: var(--text);
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
   max-width: 720px;
 }
 
@@ -134,9 +136,15 @@ html, body {
 
 .side-menu[hidden] { display: none; }
 
+.menu-close-btn {
+  position: static;
+  display: block;
+  margin-left: auto;
+}
+
 .side-menu ul {
   list-style: none;
-  margin: 48px 0 0;
+  margin: 40px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -164,17 +172,25 @@ html, body {
 
 main { padding: 32px; }
 
-.view-title {
+.page-section {
   max-width: 1200px;
-  margin: 0 auto 20px;
+  margin: 0 auto;
+  padding: 40px 0;
+  scroll-margin-top: 24px;
+}
+
+.page-section + .page-section {
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.section-title {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 22px;
   font-weight: 500;
+  margin: 0 0 20px;
 }
 
 .empty-msg {
-  max-width: 1200px;
-  margin: 0 auto;
   color: var(--muted);
   font-size: 14px;
 }
@@ -184,8 +200,6 @@ main { padding: 32px; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .reel-card {
@@ -244,8 +258,6 @@ main { padding: 32px; }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 16px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .pres-card {
@@ -257,6 +269,9 @@ main { padding: 32px; }
   color: inherit;
   cursor: pointer;
   font: inherit;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .pres-card:hover,
@@ -265,43 +280,13 @@ main { padding: 32px; }
   outline: none;
 }
 
-.pres-card h3 {
-  margin: 0;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-.back-btn {
-  background: none;
-  border: none;
-  color: var(--accent);
-  font-size: 14px;
-  cursor: pointer;
-  padding: 0 0 16px;
-  display: block;
-  font-family: inherit;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.pdf-frame {
-  display: block;
-  width: 100%;
-  max-width: 1200px;
-  height: 80vh;
-  margin: 0 auto;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 8px;
-  background: #fff;
-}
+.pres-card h3 { margin: 0; font-size: 15px; font-weight: 500; }
 
 /* --- Contactos --- */
 .contacts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .contact-card {
@@ -334,8 +319,8 @@ main { padding: 32px; }
   font-size: 13px;
 }
 
-/* --- Reproductor modal --- */
-.player-overlay {
+/* --- Overlays compartidos (video + PDF) --- */
+.overlay {
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.85);
@@ -346,9 +331,30 @@ main { padding: 32px; }
   z-index: 400;
 }
 
-.player-overlay[hidden] { display: none; }
+.overlay[hidden] { display: none; }
 
-.player-box { width: 100%; max-width: 900px; position: relative; }
+.overlay-box {
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.close-btn:hover { color: var(--accent); }
+
+.overlay-box > .close-btn {
+  position: absolute;
+  top: -44px;
+  right: 0;
+}
 
 .player-frame {
   position: relative;
@@ -368,25 +374,23 @@ main { padding: 32px; }
   border: 0;
 }
 
-.player-caption { padding-top: 14px; }
-.player-caption h2 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
-.player-caption p { margin: 0; color: var(--muted); font-size: 14px; }
+.overlay-caption { padding-top: 14px; }
+.overlay-caption h2 { margin: 0 0 4px; font-size: 18px; font-weight: 500; }
+.overlay-caption p { margin: 0; color: var(--muted); font-size: 14px; }
 
-.player-overlay .close-btn {
-  position: absolute;
-  top: -44px;
-  right: 0;
-  background: none;
-  border: none;
-  color: var(--text);
-  font-size: 32px;
-  line-height: 1;
-  cursor: pointer;
+.pdf-overlay-box .overlay-caption { padding-top: 0; padding-bottom: 10px; }
+
+.pdf-frame {
+  display: block;
+  width: 100%;
+  height: 78vh;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  background: #fff;
 }
-
-.player-overlay .close-btn:hover { color: var(--accent); }
 
 @media (max-width: 600px) {
   .site-header, main { padding-left: 20px; padding-right: 20px; }
   .corner-logo { width: 32px; height: 32px; }
+  .pdf-frame { height: 65vh; }
 }

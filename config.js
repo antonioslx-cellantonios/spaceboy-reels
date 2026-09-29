@@ -1,6 +1,6 @@
 /*
   CONFIG.JS — edita solo este archivo para actualizar el sitio.
-  Cada texto visible ahora tiene dos versiones: es (español) y en (inglés).
+  Cada texto visible tiene dos versiones: es (español) y en (inglés).
 */
 
 window.SITE_CONFIG = {
@@ -11,8 +11,8 @@ window.SITE_CONFIG = {
   eventName: { es: "Showreel 2026", en: "Showreel 2026" },
 
   studioDescription: {
-    es: "SpaceBoy es un estudio creativo mexicano con sede en Ciudad de México (2015), enfocado en VFX, postproducción y arte 2D/3D para marcas nacionales e internacionales, además de desarrollar videojuegos e interactivos.",
-    en: "SpaceBoy is a Mexican creative studio based in Mexico City (est. 2015), focused on VFX, post-production, and 2D/3D art for national and international brands, as well as the development of video games and interactive experiences."
+    es: "Diseñamos lo que todavía no existe. Somos un estudio creativo donde narrativa, diseño y tecnología convergen para construir experiencias visuales con impacto real. Desarrollamos conceptos que se transforman en universos: desde narrativas cinematográficas y campañas de alto alcance hasta videojuegos, entornos inmersivos y realidades extendidas. Producimos piezas; diseñamos sistemas visuales y experiencias que amplían la manera en que las marcas y las audiencias se relacionan.",
+    en: "Our creative studio brings together storytelling, design, and technology to build visual experiences that make a real impact. From cinematic narratives and wide-reaching campaigns to video games, immersive environments, and extended realities, we develop concepts that evolve into entire worlds. Through our work, we design visual systems and experiences that expand the ways in which brands and audiences connect."
   },
 
   footerText: { es: "Spaceboy — Ciudad de México", en: "Spaceboy — Mexico City" },
@@ -26,7 +26,7 @@ window.SITE_CONFIG = {
     accent:     "#7c5cff"
   },
 
-  // --- Videos (se muestran en la vista principal) ---
+  // --- Videos (sección "Reels") ---
   // type: "youtube" | "vimeo" | "mp4"  |  src: ID de YouTube/Vimeo, o URL completa si es mp4
   videos: [
     {
@@ -60,7 +60,6 @@ window.SITE_CONFIG = {
       type: "youtube",
       src: "c2pX5G7X058",
       title: { es: "Reel Spaceboy 77 - Videojuegos e Innovación", en: "Spaceboy 77 Reel — Video Games & Innovation" },
-      // No se dio descripción para este video: este texto es una propuesta breve, edítalo si quieres.
       description: {
         es: "Selección de proyectos de videojuegos e innovación desarrollados por Spaceboy.",
         en: "A selection of video game and innovation projects developed by Spaceboy."
@@ -70,7 +69,6 @@ window.SITE_CONFIG = {
       type: "youtube",
       src: "rE-GvOUkCXM",
       title: { es: "Reel VFX", en: "VFX Reel" },
-      // No se dio descripción para este video: este texto es una propuesta breve, edítalo si quieres.
       description: {
         es: "Trabajos de efectos visuales realizados por Spaceboy.",
         en: "Visual effects work created by Spaceboy."
@@ -78,20 +76,8 @@ window.SITE_CONFIG = {
     }
   ],
 
-  // --- Presentaciones (PDFs) ---
-  // file: ruta al PDF dentro de assets/pdfs/ (ver README para subirlos)
-  presentations: [
-  {
-    title: { es: "Spaceboy Films", en: "Spaceboy Films" },
-    file: {
-      es: "assets/pdfs/SPACEBOY%20ESP%20FILMS.pdf",
-      en: "assets/pdfs/SPACEBOY%20ENG%20FILMS.pdf"
-    }
-  }
-],
-
-  // --- Contactos (QRs) ---
-  // qr: ruta a la imagen del QR dentro de assets/img/qrs/ (ver README para subirlas)
+  // --- Contactos (sección "Contacto") ---
+  // qr: ruta a la imagen del QR dentro de assets/img/qrs/ (ver README)
   contacts: [
     // Ejemplo — bórralo o edítalo:
     // {
@@ -101,5 +87,20 @@ window.SITE_CONFIG = {
     //   email: "nombre@spaceboy.mx",
     //   qr: "assets/img/qrs/nombre.png"
     // }
+  ],
+
+  // --- Presentaciones (sección "Presentaciones") ---
+  // file puede ser una ruta simple ("assets/pdfs/x.pdf") o, como aquí,
+  // un objeto {es, en} cuando el mismo documento existe en dos idiomas:
+  // el sitio abre automáticamente la versión que coincide con el idioma activo.
+  // Escribe el nombre del archivo tal cual está en la carpeta (con espacios normales si los tiene).
+  presentations: [
+    {
+      title: { es: "Spaceboy Films", en: "Spaceboy Films" },
+      file: {
+        es: "assets/pdfs/SPACEBOY ESP FILMS.pdf",
+        en: "assets/pdfs/SPACEBOY ENG FILMS.pdf"
+      }
+    }
   ]
 };
