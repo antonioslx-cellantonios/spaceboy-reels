@@ -16,6 +16,7 @@
   --text: #f2f0ec;
   --muted: #9a9ca3;
   --accent: #7c5cff;
+  --title-scale: 3.0;
 }
 
 * { box-sizing: border-box; }
@@ -58,7 +59,7 @@ html, body {
 .brand-name {
   font-family: 'TituloFont', sans-serif;
   font-weight: 700;
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(calc(24px * var(--title-scale)), calc(4vw * var(--title-scale)), calc(36px * var(--title-scale)));
   letter-spacing: -0.01em;
 }
 
@@ -117,7 +118,7 @@ html, body {
 .event-name {
   margin: 10px 0 0;
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--title-scale));
   font-family: 'TituloFont', sans-serif;
 }
 
@@ -172,7 +173,7 @@ html, body {
   background: none;
   border: none;
   color: var(--text);
-  font-size: 17px;
+  font-size: calc(17px * var(--title-scale));
   text-align: left;
   padding: 12px 8px;
   border-radius: 0px;
@@ -202,7 +203,7 @@ main { padding: 32px; }
 
 .section-title {
   font-family: 'TituloFont', sans-serif;
-  font-size: 32px;
+  font-size: calc(32px * var(--title-scale));
   font-weight: 500;
   margin: 0 0 20px;
   color: var(--accent);
@@ -280,7 +281,7 @@ main { padding: 32px; }
 .reel-info h3 {
   font-family: 'TituloFont', sans-serif;
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: calc(16px * var(--title-scale));
   font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
@@ -327,7 +328,7 @@ main { padding: 32px; }
 .pres-card h3 {
   font-family: 'TituloFont', sans-serif;
   margin: 0;
-  font-size: 16px;
+  font-size: calc(16px * var(--title-scale));
   font-weight: 500;
 }
 
@@ -358,7 +359,7 @@ main { padding: 32px; }
 .contact-card h3 {
   font-family: 'TituloFont', sans-serif;
   margin: 0 0 4px;
-  font-size: 16px;
+  font-size: calc(16px * var(--title-scale));
   font-weight: 500;
 }
 .contact-card .role {
@@ -466,7 +467,7 @@ main { padding: 32px; }
 .overlay-caption h2 {
   font-family: 'TituloFont', sans-serif;
   margin: 0 0 4px;
-  font-size: 18px;
+  font-size: calc(18px * var(--title-scale));
   font-weight: 500;
 }
 .overlay-caption p {
