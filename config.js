@@ -28,23 +28,14 @@ window.SITE_CONFIG = {
 
   // --- Videos (sección "Reels") ---
   // type: "youtube" | "vimeo" | "mp4"  |  src: ID de YouTube/Vimeo, o URL completa si es mp4
-  videos: [
+    videos: [
     {
       type: "youtube",
-      src: "bianvKCtMM4",
-      title: { es: "Reel Motion Capture", en: "Motion Capture Reel" },
+      src: "rE-GvOUkCXM",
+      title: { es: "Reel VFX", en: "VFX Reel" },
       description: {
-        es: "Ejemplos de implementación de animaciones hechas con el sistema de captura de movimiento in-house Vicon de Spaceboy. Aplicado en series, películas, publicidad y videojuegos.",
-        en: "Examples of animation implementation using Spaceboy's in-house Vicon motion capture system. Applied in series, films, advertising, and video games."
-      }
-    },
-    {
-      type: "youtube",
-      src: "qYhZxpsL4w0",
-      title: { es: "Reel IA", en: "AI Reel" },
-      description: {
-        es: "Desarrollos de arte hechos con IA a diferentes niveles y estilos.",
-        en: "AI-generated art developments across different levels and styles."
+        es: "Trabajos de efectos visuales realizados por Spaceboy.",
+        en: "Visual effects work created by Spaceboy."
       }
     },
     {
@@ -58,6 +49,15 @@ window.SITE_CONFIG = {
     },
     {
       type: "youtube",
+      src: "qYhZxpsL4w0",
+      title: { es: "Reel IA", en: "AI Reel" },
+      description: {
+        es: "Desarrollos de arte hechos con IA a diferentes niveles y estilos.",
+        en: "AI-generated art developments across different levels and styles."
+      }
+    },
+    {
+      type: "youtube",
       src: "c2pX5G7X058",
       title: { es: "Reel Spaceboy 77 - Videojuegos e Innovación", en: "Spaceboy 77 Reel — Video Games & Innovation" },
       description: {
@@ -67,11 +67,11 @@ window.SITE_CONFIG = {
     },
     {
       type: "youtube",
-      src: "rE-GvOUkCXM",
-      title: { es: "Reel VFX", en: "VFX Reel" },
+      src: "bianvKCtMM4",
+      title: { es: "Reel Motion Capture", en: "Motion Capture Reel" },
       description: {
-        es: "Trabajos de efectos visuales realizados por Spaceboy.",
-        en: "Visual effects work created by Spaceboy."
+        es: "Ejemplos de implementación de animaciones hechas con el sistema de captura de movimiento in-house Vicon de Spaceboy. Aplicado en series, películas, publicidad y videojuegos.",
+        en: "Examples of animation implementation using Spaceboy's in-house Vicon motion capture system. Applied in series, films, advertising, and video games."
       }
     }
   ],
