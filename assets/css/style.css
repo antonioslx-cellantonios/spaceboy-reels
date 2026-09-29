@@ -10,6 +10,10 @@
   font-display: swap;
 }
 
+.menu-icon {
+  color: #ffffff;
+}
+
 :root {
   --bg: #121316;
   --surface: #1b1d22;
