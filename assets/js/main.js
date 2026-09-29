@@ -84,10 +84,10 @@
 
   // --- Reels ---
   function thumbFor(video) {
-    if (video.thumbnail) return video.thumbnail;
-    if (video.type === 'youtube') return `https://img.youtube.com/vi/${video.src}/hqdefault.jpg`;
-    return '';
-  }
+  if (video.thumbnail) return video.thumbnail;
+  if (video.type === 'youtube') return `https://img.youtube.com/vi/${video.src}/mqdefault.jpg`;
+  return '';
+}
 
   function renderGrid() {
     const grid = document.getElementById('grid');
