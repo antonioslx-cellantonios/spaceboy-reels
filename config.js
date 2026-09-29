@@ -6,8 +6,8 @@
 window.SITE_CONFIG = {
 
   // --- Marca ---
-  siteTitle: "Spaceboy Reels",
-  logo: "assets/img/logo.png",   // sube tu logo aquí (ver README)
+  siteTitle: "Reels",
+  logo: "assets/img/logoSBverticalBlanco.png",   // sube tu logo aquí (ver README)
   eventName: { es: "Showreel 2026", en: "Showreel 2026" },
 
   studioDescription: {
