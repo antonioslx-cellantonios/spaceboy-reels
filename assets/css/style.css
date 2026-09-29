@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'TituloFont';
+  src: url('../fonts/ADIEU-REGULAR2.OTF') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TextoFont';
+  src: url('../fonts/COOLVETICACOMPRESSEDRG.TTF') format('truetype');
+  font-display: swap;
+}
+
 :root {
   --bg: #121316;
   --surface: #1b1d22;
