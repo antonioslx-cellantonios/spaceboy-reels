@@ -6,9 +6,9 @@
 window.SITE_CONFIG = {
 
   // --- Marca ---
-  siteTitle: "Reels",
+  siteTitle: "Spaceboy Reels",
   logo: "assets/img/logoSBverticalBlanco.png",   // sube tu logo aquí (ver README)
-  eventName: { es: "Showreel 2026", en: "Showreel 2026" },
+  eventName: { es: "Reels", en: "Reels" },
 
   studioDescription: {
     es: "Diseñamos lo que todavía no existe. Somos un estudio creativo donde narrativa, diseño y tecnología convergen para construir experiencias visuales con impacto real. Desarrollamos conceptos que se transforman en universos: desde narrativas cinematográficas y campañas de alto alcance hasta videojuegos, entornos inmersivos y realidades extendidas. Producimos piezas; diseñamos sistemas visuales y experiencias que amplían la manera en que las marcas y las audiencias se relacionan.",
