@@ -236,6 +236,9 @@ main { padding: 32px; }
   color: inherit;
   padding: 0;
   font: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .reel-card:hover,
@@ -272,7 +275,7 @@ main { padding: 32px; }
   margin-left: 3px;
 }
 
-.reel-info { padding: 14px 16px 18px; }
+.reel-info { padding: 14px 16px 18px; flex: 1; }
 .reel-info h3 {
   font-family: 'TituloFont', sans-serif;
   margin: 0 0 4px;
