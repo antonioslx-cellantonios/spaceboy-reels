@@ -105,6 +105,8 @@ window.SITE_CONFIG = {
   // un objeto {es, en} cuando el mismo documento existe en dos idiomas:
   // el sitio abre automáticamente la versión que coincide con el idioma activo.
   // Escribe el nombre del archivo tal cual está en la carpeta (con espacios normales si los tiene).
+  presentationIcon: "assets/img/T_Documento.png",
+  
   presentations: [
     {
       title: { es: "Spaceboy Films", en: "Spaceboy Films" },
