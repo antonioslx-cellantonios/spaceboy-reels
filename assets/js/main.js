@@ -161,7 +161,10 @@
       const card = document.createElement('button');
       card.className = 'pres-card';
       card.type = 'button';
-      card.innerHTML = `<h3>${t(pres.title)}</h3>`;
+      card.innerHTML = `
+  ${cfg.presentationIcon ? `<img class="pres-icon" src="${cfg.presentationIcon}" alt="">` : ''}
+  <h3>${t(pres.title)}</h3>
+`;
       card.addEventListener('click', () => openPdf(pres));
       list.appendChild(card);
     });
