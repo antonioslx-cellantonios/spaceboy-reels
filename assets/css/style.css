@@ -96,7 +96,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'TituloFont', sans-serif;
+  font-family: 'TextoFont', sans-serif;
 }
 
 .lang-btn:hover { border-color: var(--accent); }
