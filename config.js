@@ -23,7 +23,7 @@ window.SITE_CONFIG = {
     surface:    "#1b1d22",
     text:       "#f2f0ec",
     muted:      "#9a9ca3",
-    accent:     "#7c5cff"
+    accent:     "#00ffd7"
   },
 
   // --- Videos (sección "Reels") ---
