@@ -16,6 +16,7 @@ window.SITE_CONFIG = {
   },
 
   footerText: { es: "Spaceboy — Ciudad de México", en: "Spaceboy — Mexico City" },
+  footerSubtext: { es: "Todos los derechos reservados ® 2026 Spaceboy", en: "All rights reserved ® 2026 Spaceboy" },
 
   // --- Colores ---
   colors: {
