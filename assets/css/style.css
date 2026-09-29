@@ -416,6 +416,8 @@ main { padding: 32px; }
   font-family: 'TextoFont', sans-serif;
 }
 
+.site-footer p { margin: 4px 0; }
+
 .overlay {
   position: fixed;
   inset: 0;
