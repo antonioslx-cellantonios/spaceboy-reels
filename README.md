@@ -62,20 +62,25 @@ Si solo hay una versión (sin importar idioma), usa una ruta simple:
 
 Al hacer clic en una presentación se abre un visor con el PDF encima de la página, con botón de cerrar (✕) para regresar fácilmente a donde estabas.
 
-## Contacto (QRs)
+## Contacto
 
-1. Sube cada imagen de QR a `assets/img/qrs/`.
-2. Agrega un bloque en `contacts` dentro de `config.js`:
+Cada tarjeta muestra, en orden: foto, nombre, teléfono (link), correo (link) y un botón "Ver QR" que despliega el QR de WhatsApp de esa persona (oculto hasta que se presiona). Al hacer clic en el QR ya desplegado, abre WhatsApp con esa persona, igual que si lo escanearas.
+
+1. Sube la foto de la persona a `assets/img/contacts/`.
+2. Sube la imagen de su QR de WhatsApp a `assets/img/qrs/`.
+3. Agrega un bloque en `contacts` dentro de `config.js`:
 
 ```js
 {
   name: "Nombre Apellido",
-  role: "Puesto",              // opcional
-  phone: "+52 55 0000 0000",   // opcional
-  email: "nombre@spaceboy.mx", // opcional
-  qr: "assets/img/qrs/nombre.png"
+  photo: "assets/img/contacts/nombre.jpg",
+  phone: "+52 55 1234 5678",     // con código de país; se usa para llamar/guardar Y para el link de WhatsApp
+  email: "nombre@spaceboy.mx",
+  qr: "assets/img/qrs/nombre-whatsapp.png"
 }
 ```
+
+El teléfono se usa para dos cosas automáticamente: como link `tel:` (para llamar o guardar el contacto) y, quitándole los espacios y el `+`, para armar el link de WhatsApp detrás del QR — por eso conviene escribirlo completo con código de país.
 
 ## Sobre alojar los videos
 

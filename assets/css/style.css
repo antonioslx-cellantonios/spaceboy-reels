@@ -297,20 +297,45 @@ main { padding: 32px; }
   text-align: center;
 }
 
-.contact-card img {
+.contact-photo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  display: block;
+  background: #333;
+}
+
+.contact-card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 500; }
+.contact-card p { margin: 4px 0; font-size: 13px; }
+.contact-card a { color: var(--text); text-decoration: none; }
+.contact-card a:hover { color: var(--accent); }
+
+.qr-toggle {
+  margin-top: 12px;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text);
+  font-size: 12px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.qr-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+.qr-panel { margin-top: 14px; }
+.qr-panel[hidden] { display: none; }
+
+.qr-panel img {
   width: 140px;
   height: 140px;
   object-fit: contain;
   background: #fff;
   border-radius: 6px;
-  margin-bottom: 14px;
 }
-
-.contact-card h3 { margin: 0 0 2px; font-size: 15px; font-weight: 500; }
-.contact-card .role { margin: 0 0 10px; font-size: 12px; color: var(--muted); }
-.contact-card p { margin: 2px 0; font-size: 13px; }
-.contact-card a { color: var(--text); text-decoration: none; }
-.contact-card a:hover { color: var(--accent); }
 
 .site-footer {
   padding: 32px 32px 72px;

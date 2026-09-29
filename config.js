@@ -28,7 +28,7 @@ window.SITE_CONFIG = {
 
   // --- Videos (sección "Reels") ---
   // type: "youtube" | "vimeo" | "mp4"  |  src: ID de YouTube/Vimeo, o URL completa si es mp4
-    videos: [
+  videos: [
     {
       type: "youtube",
       src: "rE-GvOUkCXM",
@@ -77,15 +77,18 @@ window.SITE_CONFIG = {
   ],
 
   // --- Contactos (sección "Contacto") ---
-  // qr: ruta a la imagen del QR dentro de assets/img/qrs/ (ver README)
+  // photo: foto de la persona, en assets/img/contacts/
+  // qr:    QR de WhatsApp de esa persona, en assets/img/qrs/ (solo se ve al presionar "Ver QR")
+  // phone: con código de país, ej. "+52 55 1234 5678" — se usa tanto para el link
+  //        de llamada/guardar contacto como para abrir WhatsApp al hacer clic en el QR.
   contacts: [
     // Ejemplo — bórralo o edítalo:
     // {
     //   name: "Nombre Apellido",
-    //   role: "Puesto",
+    //   photo: "assets/img/contacts/nombre.jpg",
     //   phone: "+52 55 0000 0000",
     //   email: "nombre@spaceboy.mx",
-    //   qr: "assets/img/qrs/nombre.png"
+    //   qr: "assets/img/qrs/nombre-whatsapp.png"
     // }
   ],
 

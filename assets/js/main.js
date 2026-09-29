@@ -9,7 +9,9 @@
       navContacts: "Contacto",
       navPresentations: "Presentaciones",
       presentationsEmpty: "Aún no hay presentaciones cargadas.",
-      contactsEmpty: "Aún no hay contactos cargados."
+      contactsEmpty: "Aún no hay contactos cargados.",
+      showQr: "Ver QR",
+      hideQr: "Ocultar QR"
     },
     en: {
       langButton: "ES",
@@ -17,7 +19,9 @@
       navContacts: "Contact",
       navPresentations: "Presentations",
       presentationsEmpty: "No presentations added yet.",
-      contactsEmpty: "No contacts added yet."
+      contactsEmpty: "No contacts added yet.",
+      showQr: "Show QR",
+      hideQr: "Hide QR"
     }
   };
 
@@ -190,15 +194,35 @@
     const items = cfg.contacts || [];
     empty.hidden = items.length > 0;
     items.forEach((c) => {
+      const digits = (c.phone || '').replace(/[^\d]/g, ''); // solo números, para WhatsApp
+      const waLink = digits ? `https://wa.me/${digits}` : '#';
+
       const card = document.createElement('div');
       card.className = 'contact-card';
       card.innerHTML = `
-        ${c.qr ? `<img src="${c.qr}" alt="QR ${c.name || ''}">` : ''}
+        ${c.photo ? `<img class="contact-photo" src="${c.photo}" alt="${c.name || ''}">` : ''}
         <h3>${c.name || ''}</h3>
-        ${c.role ? `<p class="role">${c.role}</p>` : ''}
         ${c.phone ? `<p><a href="tel:${c.phone.replace(/\s+/g, '')}">${c.phone}</a></p>` : ''}
         ${c.email ? `<p><a href="mailto:${c.email}">${c.email}</a></p>` : ''}
+        ${c.qr ? `
+          <button class="qr-toggle" type="button">${UI[lang].showQr}</button>
+          <div class="qr-panel" hidden>
+            <a href="${waLink}" target="_blank" rel="noopener">
+              <img src="${c.qr}" alt="QR WhatsApp ${c.name || ''}">
+            </a>
+          </div>
+        ` : ''}
       `;
+
+      const toggleBtn = card.querySelector('.qr-toggle');
+      const panel = card.querySelector('.qr-panel');
+      if (toggleBtn && panel) {
+        toggleBtn.addEventListener('click', () => {
+          panel.hidden = !panel.hidden;
+          toggleBtn.textContent = panel.hidden ? UI[lang].showQr : UI[lang].hideQr;
+        });
+      }
+
       grid.appendChild(card);
     });
   }
