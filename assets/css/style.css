@@ -313,6 +313,11 @@ main { padding: 32px; }
 }
 
 .contact-card h3 { margin: 0 0 10px; font-size: 15px; font-weight: 500; }
+.contact-card .role {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
 .contact-card p { margin: 4px 0; font-size: 13px; }
 .contact-card a { color: var(--text); text-decoration: none; }
 .contact-card a:hover { color: var(--accent); }
