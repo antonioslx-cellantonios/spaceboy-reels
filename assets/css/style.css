@@ -41,7 +41,7 @@ html, body {
 .header-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -53,8 +53,9 @@ html, body {
 }
 
 .brand img {
-  max-height: 56px;
+  max-height: 96px;
   display: block;
+  margin: 0 auto;
 }
 
 .header-controls {
