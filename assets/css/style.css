@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'TituloFont';
+  font-family: 'TextoFont';
   src: url('../fonts/ADIEU-REGULAR2.OTF') format('opentype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'TextoFont';
+  font-family: 'TituloFont';
   src: url('../fonts/COOLVETICACOMPRESSEDRG.TTF') format('truetype');
   font-display: swap;
 }
