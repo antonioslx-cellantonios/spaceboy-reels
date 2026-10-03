@@ -35,10 +35,12 @@
   }
 
   // --- Aplicar colores como CSS variables ---
-  const root = document.documentElement;
-  Object.entries(cfg.colors || {}).forEach(([key, value]) => {
-    if (value) root.style.setProperty('--' + key, value);
-  });
+const root = document.documentElement;
+Object.entries(cfg.colors || {}).forEach(([key, value]) => {
+  if (!value) return;
+  const cssVar = key === 'background' ? 'bg' : key;
+  root.style.setProperty('--' + cssVar, value);
+});
 
   // --- Logo ---
   const brand = document.getElementById('brand');
