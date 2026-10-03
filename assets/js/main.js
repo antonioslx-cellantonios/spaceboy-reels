@@ -45,12 +45,15 @@
   const brandName = document.getElementById('brand-name');
   const cornerLogo = document.getElementById('corner-logo');
   if (cfg.logo) {
-    brand.innerHTML = `<img src="${cfg.logo}" alt="${cfg.siteTitle || ''}">`;
-    cornerLogo.style.backgroundImage = `url('${cfg.logo}')`;
-    cornerLogo.hidden = false;
-  } else {
-    brandName.textContent = cfg.siteTitle || 'Reels';
-  }
+  brand.innerHTML = `
+    <img class="brand-logo" src="${cfg.logo}" alt="${cfg.siteTitle || ''}">
+    ${cfg.secondaryLogo ? `<img class="brand-logo" src="${cfg.secondaryLogo}" alt="">` : ''}
+  `;
+  cornerLogo.style.backgroundImage = `url('${cfg.logo}')`;
+  cornerLogo.hidden = false;
+} else {
+  brandName.textContent = cfg.siteTitle || 'Reels';
+}
   document.getElementById('site-footer').textContent = t(cfg.footerText);
   document.getElementById('site-footer-secondary').textContent = t(cfg.footerSubtext);
 
