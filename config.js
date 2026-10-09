@@ -21,7 +21,7 @@ window.SITE_CONFIG = {
 
   // --- Colores ---
   colors: {
-    background: "#16174d",
+    background: "#df89dc",
     surface:    "#1b1d22",
     text:       "#f2f0ec",
     muted:      "#9a9ca3",
