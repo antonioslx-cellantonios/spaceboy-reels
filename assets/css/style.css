@@ -80,8 +80,10 @@ html, body {
 }
 
 .brand-logo {
-  max-height: 140px;
+  height: 140px;
   width: auto;
+  max-width: 100%;
+  object-fit: contain;
   display: block;
 }
 
