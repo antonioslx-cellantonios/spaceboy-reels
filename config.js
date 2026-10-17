@@ -8,7 +8,7 @@ window.SITE_CONFIG = {
   // --- Marca ---
   siteTitle: "Spaceboy Reels",
   logo: "assets/img/logoSBverticalBlanco.png",   // sube tu logo aquí (ver README)
-  secondaryLogo: "secondary.png",
+  secondaryLogo: "assets/img/secondary.png",
   eventName: { es: "Reels", en: "Reels" },
 
   studioDescription: {
