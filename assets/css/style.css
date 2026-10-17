@@ -72,12 +72,16 @@ html, body {
 }
 
 .brand {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
+  column-gap: 24px;
+  width: 100%;
 }
+
+.brand-logo:first-child { justify-self: end; }
+.brand-logo:last-child { justify-self: start; }
+.brand-logo:only-child { grid-column: 1 / -1; justify-self: center; }
 
 .brand-logo {
   height: 140px;
@@ -88,7 +92,9 @@ html, body {
 }
 
 @media (max-width: 600px) {
-  .brand { flex-direction: column; gap: 12px; }
+  .brand { grid-template-columns: 1fr; row-gap: 12px; }
+  .brand-logo:first-child,
+  .brand-logo:last-child { justify-self: center; }
 }
 
 .header-controls {
